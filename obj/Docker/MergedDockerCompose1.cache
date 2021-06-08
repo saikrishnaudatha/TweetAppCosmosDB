@@ -1,0 +1,36 @@
+services:
+  tweetapp:
+    build:
+      context: C:\Users\User\Desktop\TweetAppAzureDeployWithCosmosDb-main\CosmosDb\TweetApp
+      dockerfile: TweetApp\Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: TweetApp
+    container_name: TweetApp
+    entrypoint: C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus
+      /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646 /LogDebuggeeOutputToStdOut
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: c:\.nuget\fallbackpackages
+      NUGET_PACKAGES: C:\.nuget\packages
+    image: tweetapp:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath c:\.nuget\packages
+        --additionalProbingPath c:\.nuget\fallbackpackages  "C:\app\bin\Debug\netcoreapp3.1\TweetApp.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: C:\remote_debugger\x64\utils\KillProcess.exe
+        dotnet.exe
+      com.microsoft.visualstudio.debuggee.program: '"C:\Program Files\dotnet\dotnet.exe"'
+      com.microsoft.visualstudio.debuggee.workingdirectory: C:\app
+    ports:
+    - target: 80
+    volumes:
+    - C:\Users\User\AppData\Roaming\ASP.NET\Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
+    - C:\Users\User\AppData\Roaming\Microsoft\UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+    - C:\Users\User\Desktop\TweetAppAzureDeployWithCosmosDb-main\CosmosDb\TweetApp\TweetApp:C:\app:rw
+    - C:\Users\User\onecoremsvsmon\16.8.0715.0:C:\remote_debugger:ro
+    - C:\Users\User\Desktop\TweetAppAzureDeployWithCosmosDb-main\CosmosDb\TweetApp:C:\src:rw
+    - C:\Microsoft\Xamarin\NuGet:c:\.nuget\fallbackpackages:ro
+    - C:\Users\User\.nuget\packages:c:\.nuget\packages:ro
+version: '3.4'

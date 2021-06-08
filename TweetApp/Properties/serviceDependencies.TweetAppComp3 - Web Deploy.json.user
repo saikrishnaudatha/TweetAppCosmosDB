@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "cosmosdb1": {
+      "restored": true,
+      "restoreTime": "2021-06-07T17:46:20.6578059Z"
+    },
+    "apis1": {
+      "restored": true,
+      "restoreTime": "2021-06-07T17:45:21.7093682Z"
+    }
+  },
+  "parameters": {
+    "apis1.resourceGroupName": {
+      "Name": "apis1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "tweetappaccountResourceGroup"
+    },
+    "cosmosdb1.resourceGroupName": {
+      "Name": "cosmosdb1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "tweetappaccountResourceGroup"
+    },
+    "apis1.subscriptionId": {
+      "Name": "apis1.subscriptionId",
+      "Type": "subscription",
+      "Value": "6d837dbf-18a8-4c38-92fe-e5c67fbd5fed"
+    },
+    "cosmosdb1.subscriptionId": {
+      "Name": "cosmosdb1.subscriptionId",
+      "Type": "subscription",
+      "Value": "6d837dbf-18a8-4c38-92fe-e5c67fbd5fed"
+    }
+  }
+}
